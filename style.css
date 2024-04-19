@@ -1,0 +1,801 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    width: 100%;
+    height: 100vh;
+    /* display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0px; */
+    background: linear-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+}
+.main-con
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    padding: 0 10px;
+    margin-bottom: 0px;
+    width: 99%;
+    height: 99vh;
+}
+
+.score-con
+{
+    max-width: 100%;
+    /* min-height: 24vh; */
+    width: 700px;
+    border: 3px solid hsl(217, 16%, 45%);
+    margin-top: 2rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    color: whitesmoke;
+    /* background-color: blue; */
+}
+
+.logo
+{
+    font-size: 48px;
+    line-height: 0.8;
+    font-weight: 700;
+    height: 92%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+    /* background-color: yellow; */
+
+}
+
+.score
+{
+    text-align: center;
+    height: 120px;
+    width: 160px;
+    padding: 6px 10px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+    
+}
+
+.score p
+{
+    color: hsl(229, 64%, 46%);
+    font-size: 25px;
+    display: flex;
+    letter-spacing: 1px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.score span
+{
+    display: block;
+    font-size: 55px;
+    font-weight: 700;
+    color: hsl(217, 16%, 45%);
+    /* background-color: yellow; */
+}
+
+.game-con
+{
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.info
+{
+    width: 700px;
+    min-height: 7vh;
+    font-size: 1.2rem;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.option
+{
+    /* width: 100%; */
+    width: 700px;
+    min-height: 50vh;
+    display: grid;
+    place-content: center;
+    position: relative;
+    /* background-color: beige; */
+}
+
+.con
+{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    padding: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.1s all ease;
+}
+.con:hover
+{
+    box-shadow: 0px 0px 16px 8px rgb(185, 183, 183);
+}
+
+.computer
+{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    padding: 18px;
+    border-radius: 50%;
+    display: none;
+}
+.sci-con
+{
+    background: linear-gradient(hsl(39, 89%, 49%) ,hsl(40, 84%, 53%));
+    right: 7.5rem;
+    top: 1%;
+    transition: 0.3s ease;
+}
+.sci-con:hover
+{
+    transform: rotate(360deg) translateZ(0);
+}
+
+
+.rock-con
+{
+    background: linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+    left: 17rem;
+    top: 70%;
+    transition: 0.3s ease;
+}
+.paper-con
+{
+    background: linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+    left: 7.5rem;
+    top: 1%;
+    transition: 0.3s ease;
+}
+.sci-con:hover,
+.rock-con:hover,
+.paper-con:hover
+{
+    transform: rotate(360deg) translateZ(0);
+}
+
+.item
+{
+    background: wheat;
+    height: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    transition: 0.4s ease;
+}
+.item:hover
+{
+    transform: scale(1.1);
+}
+
+.user,
+.machine
+{
+    opacity: 0;
+    color: white;
+}
+
+.btn-div
+{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2rem 1rem 0;
+    margin-top: 20px;
+}
+.btn-rule
+{
+    padding: 8px 30px;
+    border: 2px solid hsl(217, 16%, 45%);
+    outline: none;
+    border-radius: 5px;
+    background: transparent;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex; 
+    transition: 0.3s ease;
+}
+.btn-rule:hover
+{
+    border: 2px solid white;
+    background-color: wheat;
+    color: hsl(214, 47%, 23%);
+    font-weight: bold;
+}
+
+
+
+
+.rule-modal
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    display: none;
+}
+.rule-modal::before
+{
+    position: absolute;
+    content: "";
+    background: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+.rule-img
+{
+    z-index: 1;
+    background: #eee;
+    padding: 16px 22px;
+    border-radius: 10px;
+    transform: translateY(-200%);
+    transition: all 0.4s ease;
+}
+.rule-img div
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1rem 0; */
+}
+.rule-img div p
+{
+    font-size: 20px;
+    font-weight: bold;
+    color: hsl(214, 47%, 23%);
+
+}
+.close
+{
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+.close:hover
+{
+    transform: rotate(360deg) translateZ(0);
+}
+.rule
+{
+    margin: 2rem 2rem 0 2rem;
+}
+
+
+.win-modal
+{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    top:0;
+    display: none;
+}
+.win-modal::before
+{
+    position: absolute;
+    content: "";
+    background: black;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+}
+.winner,
+.play
+{
+    z-index: 1;
+    /* background-color: gold; */
+    
+
+}
+.winner
+{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+.play
+{
+    background: #eee;
+    letter-spacing: 3px;
+    outline: none;
+    border: 2px solid #eee;
+    color: hsl(349, 71%, 52%);
+    padding: 12px 6px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+.play:hover
+{
+    border: 2px solid #eee;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+
+.show
+{
+    left: 5.5rem;
+    top: 1%;
+}
+.right
+{
+    left: 27.5rem;
+    top: 3%;
+}
+/*________________________________RESPONSIVE_________________________________*/
+
+
+@media only screen and (max-width: 750px)
+{
+    body
+    {
+        height: 100%;
+        /* background-color: yellow; */
+    }
+    .main-con
+    {
+        /* background-color: yellow; */
+        padding-right: 10px;
+    }
+
+    .score-con
+    {
+        max-width: 100%;
+        /* min-height: 24vh; */
+        width: 400px;
+        border: 2px solid hsl(217, 16%, 45%);
+        padding: 6px 8px;
+        color: whitesmoke;
+        /* background-color: blue; */
+        margin-top: 15px;
+    }
+    
+    .logo
+    {
+        font-size: 30px;
+        line-height: 0.8;
+        font-weight: 600;
+        /* background-color: yellow; */
+    
+    }
+    .score
+    {
+        
+        height: 70px;
+        width: 120px;
+        padding: 10px 12px;
+        
+        
+    }
+    .score p
+    {
+        font-size: 20px;
+    }
+    .score span
+    {
+        font-size: 40px;
+        /* background-color: yellow; */
+    }
+
+    /* .game-con
+    {
+        width: 100%;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: yellow; */
+        /* padding-right: 10px;
+    } */
+
+    .info
+    {
+        width: 100%;
+        font-size: 1.1rem;
+        position: relative;
+        /* background-color: yellow; */
+    }
+    
+    .option
+    {
+        width: 100%;
+        /* width: 700px; */
+        height: 100vh;
+    }
+    
+    .con
+    {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        position: relative;
+    }
+
+    .triangle
+    {
+        position: relative;
+        width: 220px;
+        top: 110px;
+    }
+    
+    .computer
+    {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        position: relative;
+        /* display: none; */
+    }
+    .icons
+    {
+        width: 45px;
+    }
+    .sci-con
+    {
+        background: linear-gradient(hsl(39, 89%, 49%) ,hsl(40, 84%, 53%));
+        right: -10rem;
+        top: -8rem;
+        
+    }
+    
+    
+    .rock-con
+    {
+        background: linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+        left: 3.5rem;
+        top: -3rem;
+    }
+    .paper-con
+    {
+        background: linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+        left: -2rem;
+        top: -20.5rem;
+    
+    }
+    .show
+    {
+        position: relative;
+        left: -7rem;
+        top: -5rem;
+    }
+
+    .right
+    {
+        left: 5.5rem;
+        top: -11rem;
+    }
+    
+    /* .item
+    {
+        background: wheat;
+        height: 100%;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
+        transition: 0.4s ease;
+    }
+    .item:hover
+    {
+        transform: scale(1.1);
+    } */
+    
+    /* .user,
+    .machine
+    {
+        opacity: 0;
+        color: white;
+    } */
+    
+    .btn-div
+    {
+        padding-left: 2rem;
+        justify-content: center;
+    }
+    .btn-rule
+    {
+        padding: 6px 20px;
+        font-size: 14px;
+    }
+    
+    /* .rule-modal
+    {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        display: none;
+    }
+    .rule-modal::before
+    {
+        position: absolute;
+        content: "";
+        background: black;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+    } */
+    .rule-img
+    {
+        position: relative;
+        width: 80%;
+        padding: 10px 16px;
+    }
+    /* .rule-img div
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    } */
+    .rule-img div p
+    {
+        font-size: 18px;    
+    }
+    /* .close
+    {
+        background: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    } */
+    .rule
+    {
+        margin: 1rem 0rem 0 0rem;
+    }
+
+    @media only screen and (max-width: 400px)
+    {
+        .con
+        {
+            width: 90px;
+            height: 90px;
+            padding: 9px;
+            /* position: relative; */
+        }
+    
+        .triangle
+        {
+            position: relative;
+            width: 220px;
+            top: 110px;
+        }
+        
+        .computer
+        {
+            width: 90px;
+            height: 90px;
+            padding: 9px;
+            /* position: relative; */
+            /* display: none; */
+        }
+        .icons
+        {
+            width: 42px;
+        }
+        .sci-con
+        {
+            background: linear-gradient(hsl(39, 89%, 49%) ,hsl(40, 84%, 53%));
+            right: -10rem;
+            top: -7.2rem;
+        }
+        
+        
+        .rock-con
+        {
+            background: linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+            left: 4.2rem;
+            top: -1rem;
+        }
+        .paper-con
+        {
+            background: linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+            left: -2rem;
+            top: -18.2rem;
+        
+        }
+        .show
+        {
+            left: -6rem;
+            top: -6rem;
+        }
+    
+        .right
+        {
+            left: 6rem;
+            top: -11.5rem;
+        }
+
+
+
+        .machine
+        {
+            padding-left: 20px;
+        }
+        .btn-div
+        {
+            padding: 0 0rem 1rem 0;
+        }
+        /* .rule-modal
+        {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            display: none;
+        } */
+        /* .rule-modal::before
+        {
+            position: absolute;
+            content: "";
+            background: black;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+        } */
+        .rule
+        {
+            width: 250px;
+            padding: 10px 0px;
+            padding-left: 10px;
+        }
+    }
+    
+    
+    @media only screen and (max-width: 350px)
+    {
+        .score-con
+        {
+            padding: 6px 8px;            
+        }
+        
+        .logo
+        {
+            font-size: 30px;        
+        }
+        .score
+        {
+            
+            height: 75px;
+            width: 110px;
+        }
+        .score p
+        {
+            font-size: 20px;
+        }
+        .score span
+        {
+            font-size: 40px;
+        }
+        
+        .con
+        {
+            width: 100px;
+            height: 100px;
+            padding: 9px;
+        }
+    
+        .triangle
+        {
+            width: 220px;
+        }
+        
+        .computer
+        {
+            width: 100px;
+            height: 100px;
+            padding: 8px;
+            /* display: none; */
+        }
+        
+        .item:hover
+        {
+            transform: scale(1.05);
+        }
+        .icons
+        {
+            width: 40px;
+        }
+        
+        .sci-con
+        {
+            background: linear-gradient(hsl(39, 89%, 49%) ,hsl(40, 84%, 53%));
+            right: 0.5rem;
+            top: 5%;
+        }
+        
+        
+        .rock-con
+        {
+            background: linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+            left: 6rem;
+            top: 60%;
+        }
+        .paper-con
+        {
+            background: linear-gradient(hsl(230, 89%, 62%),hsl(230, 89%, 65%));
+            left: 0.5rem;
+            top: 5%;
+        
+        }
+        .show
+        {
+            left: 0.5rem;
+            top: 2%;
+        }
+    
+        .right
+        {
+            left: 11.5rem;
+            top: 2%;
+        }
+        
+        
+        
+        .machine
+        {
+            padding-left: 50px;
+        }
+        
+        .rule{
+            width: 240px;
+        }
+        
+    
+    }
+    
+}
